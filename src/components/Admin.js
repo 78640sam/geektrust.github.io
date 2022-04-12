@@ -7,18 +7,19 @@ import React from "react";
 function Admin() {
     const [data, setData] = useState([]);
    
-    const admindata = async () => {
-       const res = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
-          
-       setData(await res.json());
-
-console.log(data);
-    }
 
     useEffect(() => {
+      const admindata = async () => {
+        const res = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
+           
+        setData(await res.json());
+ 
+ console.log(data);
+     }
+ 
         
           admindata();
-      }, []);
+      }, [data]);
 
       
 
